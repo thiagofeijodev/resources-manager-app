@@ -13,13 +13,15 @@ import './index.css'
 const engine = new Styletron();
 
 ReactDOM.render(
-  <StyletronProvider value={engine}>
-    <BaseProvider theme={LightTheme}>
-      <Provider store={store}>
-        <Root />
-      </Provider>
-    </BaseProvider>
-  </StyletronProvider>,
+  <React.StrictMode>
+    <StyletronProvider value={engine}>
+      <BaseProvider theme={LightTheme}>
+        <Provider store={store}>
+          <Root />
+        </Provider>
+      </BaseProvider>
+    </StyletronProvider>
+  </React.StrictMode>,
   document.getElementById('root')
 )
 
