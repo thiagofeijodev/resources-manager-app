@@ -1,3 +1,3 @@
-export { login, logout, LOGOUT } from './actions'
+export { login, logout, LOGOUT, BASE_PATH } from './actions'
 export { default as authReducer } from './reducer'
 export * from './seletors'

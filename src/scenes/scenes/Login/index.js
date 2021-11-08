@@ -3,7 +3,8 @@ import { Navigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { Notification, KIND } from 'baseui/notification'
 import { selectAuth, selectError, login } from 'data/auth'
-import { Form } from './components'
+import { RestoreBackup } from 'components'
+import { Form, Container } from './components'
 
 export default function Login() {
   const auth = useSelector(selectAuth)
@@ -19,8 +20,13 @@ export default function Login() {
     return <Navigate to="/home" />
 
   return (
-    <>
+    <Container>
+      <h1>Resources manager</h1>
+
       <Form onSubmit={onSubmit} />
+
+      <br/>
+
       {error && error.isInvalid && (
         <Notification
           kind={KIND.negative}
@@ -35,6 +41,8 @@ export default function Login() {
           Invalid password
         </Notification>
       )}
-    </>
+
+      <RestoreBackup />
+    </Container>
   )
 }

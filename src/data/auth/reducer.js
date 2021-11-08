@@ -13,9 +13,10 @@ const initialState = () => {
 const authReducer = createReducer(initialState(), (builder) => {
   builder
     .addCase(login, (state, action) => {
-      const { username, password } = action.payload
+      const username = action.payload.username.toLowerCase()
+      const password = action.payload.password.toLowerCase()
       const storage = initialState()
-      const hash = sign(username, password)
+      const hash = sign(username.toLowerCase(), password)
       const user = storage.user || {}
       const users = storage.users || {}
 
