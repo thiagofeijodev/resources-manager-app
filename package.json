@@ -1,5 +1,5 @@
 {
-  "name": "bucket-app",
+  "name": "resources-manager-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "GENERATE_SOURCEMAP=false PUBLIC_URL=/resources-manager-app/ BUILD_PATH='./docs' react-scripts build",
     "test": "react-scripts test"
   },
   "eslintConfig": {
