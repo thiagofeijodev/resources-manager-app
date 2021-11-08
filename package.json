@@ -1,5 +1,6 @@
 {
   "name": "resources-manager-app",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,7 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "GENERATE_SOURCEMAP=false PUBLIC_URL=/resources-manager-app/ BUILD_PATH='./docs' react-scripts build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d docs",
     "test": "react-scripts test"
   },
   "eslintConfig": {
