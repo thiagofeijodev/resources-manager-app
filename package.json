@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "baseui": "^10.5.0",
     "formik": "^2.2.9",
+    "gh-pages": "^3.2.3",
     "history": "5",
     "jsonwebtoken": "^8.5.1",
     "react": "^17.0.2",
@@ -22,6 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "GENERATE_SOURCEMAP=false PUBLIC_URL=/resources-manager-app/ BUILD_PATH='./docs' react-scripts build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test"
   },
   "eslintConfig": {
