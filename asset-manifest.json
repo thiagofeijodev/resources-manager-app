@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/resources-manager-app/static/css/main.1359096b.chunk.css",
-    "main.js": "/resources-manager-app/static/js/main.a65c5151.chunk.js",
+    "main.js": "/resources-manager-app/static/js/main.300c1a36.chunk.js",
     "runtime-main.js": "/resources-manager-app/static/js/runtime-main.cd35b774.js",
     "static/js/2.33290087.chunk.js": "/resources-manager-app/static/js/2.33290087.chunk.js",
     "index.html": "/resources-manager-app/index.html",
@@ -11,6 +11,6 @@
     "static/js/runtime-main.cd35b774.js",
     "static/js/2.33290087.chunk.js",
     "static/css/main.1359096b.chunk.css",
-    "static/js/main.a65c5151.chunk.js"
+    "static/js/main.300c1a36.chunk.js"
   ]
 }
