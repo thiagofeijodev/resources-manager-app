@@ -1,8 +1,14 @@
 {
   "name": "resources-manager-app",
-  "homepage": "https://thiagofeijor.github.io/resources-manager-app",
+  "homepage": "./",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "GENERATE_SOURCEMAP=false BUILD_PATH='./build' react-scripts build",
+    "deploy": "gh-pages -d build",
+    "test": "react-scripts test"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^4.2.4",
@@ -20,12 +26,6 @@
     "react-scripts": "4.0.3",
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "GENERATE_SOURCEMAP=false PUBLIC_URL=/resources-manager-app/ BUILD_PATH='./docs' react-scripts build",
-    "deploy": "gh-pages -d docs",
-    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"
