@@ -3,7 +3,8 @@
   
   <p>Final college project, inventory management system. Built as a client side application without a backend and with a decentralized database. </p>
   
-  [**Available for use at https://resources-manager.feijo.dev/**](https://resources-manager.feijo.dev/){:target="_blank" rel="noopener"}
+  <a href="https://resources-manager.feijo.dev/" target="_blank">Available for use here</a>
+
 </div>
 
 <hr />
