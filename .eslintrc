@@ -2,9 +2,13 @@
     "env": {
         "browser": true,
         "es2021": true,
-        "jest": true
+        "jest": true,
+        "amd": true,
+        "node": true
     },
     "extends": [
+        "airbnb",
+        "airbnb/hooks",
         "eslint:recommended",
         "plugin:react/recommended",
         "prettier"
@@ -21,13 +25,6 @@
         "react"
     ],
     "settings": {
-        "import/resolver": {
-            "alias": {
-                "map": [
-                    ["components", "./src/components"]
-                ]
-            }
-        }
     },
     "rules": {
         "no-console": "off",
@@ -52,12 +49,11 @@
         ],
         "react/react-in-jsx-scope": "off",
         "import/no-extraneous-dependencies": [
-            "error",
-            {
-                "devDependencies": [
-                    "**/*test.js",
-                    "src/setupTests.js"
-                ]
+            "warn", {
+                "devDependencies": false, 
+                "optionalDependencies": false, 
+                "peerDependencies": false, 
+                "packageDir": "./"
             }
         ],
         "react/jsx-filename-extension": [

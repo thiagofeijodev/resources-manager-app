@@ -1,4 +1,4 @@
-export default function loadStorage(key) {
+export const loadStorage = (key) => {
   const user = localStorage.getItem(key)
 
   if (user) {
@@ -6,3 +6,5 @@ export default function loadStorage(key) {
   }
   return null
 }
+
+export default loadStorage

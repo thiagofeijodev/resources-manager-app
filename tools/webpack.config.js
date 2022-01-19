@@ -1,6 +1,14 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+/*
+https://github.com/facebook/create-react-app/blob/main/packages/react-scripts/scripts/test.js
+https://github.com/facebook/create-react-app/blob/main/packages/react-scripts/scripts/start.js
+https://github.com/facebook/create-react-app/blob/main/packages/react-scripts/scripts/build.js
+https://github.com/facebook/create-react-app/blob/main/packages/react-scripts/config/webpack.config.js
+*/
 
 module.exports = {
   mode: 'development',

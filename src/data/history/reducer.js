@@ -20,7 +20,10 @@ const historyReducer = createReducer(initialState(), (builder) => {
       ]
 
       localStorage.setItem(BASE_PATH, JSON.stringify(storage))
-      state.list = storage.list
+      return {
+        ...state,
+        list: storage.list
+      }
     })
 })
 
