@@ -1,25 +1,31 @@
 {
   "short_name": "Resources manager",
-  "name": "Manage your company resources",
+  "name": "Resources manager",
+  "description": "Manage your company resources",
+  "start_url": "/",
+  "scope": ".",
+  "dir": "ltr",
+  "display_override": ["window-control-overlay", "minimal-ui"],
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "categories": ["business", "government", "productivity", "utilities"],
   "icons": [
     {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
     }
   ],
-  "start_url": ".",
-  "display": "fullscreen",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "shortcuts" : [
+    {
+      "name": "Login",
+      "url": "/login"
+    },
+    {
+      "name": "Resources",
+      "url": "/home",
+      "description": "Resources management"
+    }
+  ]
 }

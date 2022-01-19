@@ -5,8 +5,9 @@
   "private": true,
   "scripts": {
     "prepare": "husky install",
-    "start": "webpack serve --mode development --config tools/webpack.config.js",
-    "build": "webpack --mode production --config tools/webpack.config.js",
+    "start": "webpack serve --mode development --config tools/webpack.dev.js",
+    "t": "webpack serve --mode development --config tools/webpack.config.js",
+    "build": "webpack --mode production --config tools/webpack.prod.js",
     "deploy": "gh-pages -d build",
     "test": "jest --maxConcurrency=2 --maxWorkers=2",
     "lint": "eslint --ext js,jsx 'src/**/**.js' --max-warnings 0"
@@ -36,8 +37,9 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-module-resolver": "^4.1.0",
     "buffer": "^6.0.3",
-    "css-loader": "^6.4.0",
+    "copy-webpack-plugin": "^10.2.0",
     "crypto-browserify": "^3.12.0",
+    "css-loader": "^6.4.0",
     "dotenv": "^14.2.0",
     "dotenv-webpack": "^7.0.3",
     "eslint": "^7.32.0",
@@ -48,6 +50,8 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "favicons": "^6.2.2",
+    "favicons-webpack-plugin": "^5.0.2",
     "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.4.0",
     "husky": "^5.2.0",
@@ -59,10 +63,12 @@
     "style-loader": "^3.3.0",
     "util": "^0.12.4",
     "webpack": "^5.58.2",
+    "webpack-assets-manifest": "^5.1.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.3.1",
     "webpack-merge": "^5.8.0",
-    "webpack-node-externals": "^3.0.0"
+    "webpack-node-externals": "^3.0.0",
+    "workbox-webpack-plugin": "^6.4.2"
   },
   "eslintConfig": {
     "extends": "react-app"
