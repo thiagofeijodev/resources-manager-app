@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --mode development --config tools/webpack.config.js",
     "build": "webpack --mode production --config tools/webpack.config.js",
-    "eject": "react-scripts eject",
+    "prepare": "husky install",
     "deploy": "gh-pages -d build",
     "test": "jest --maxConcurrency=2 --maxWorkers=2",
     "lint": "eslint --ext js,jsx 'src/**/**.js' 'src/**/**.jsx' 'public/**.js' 'config/**' *.js --max-warnings 0"
@@ -20,11 +20,12 @@
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.3",
     "react-router-dom": "6",
-    "react-scripts": "^5.0.0",
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^16.0.1",
+    "@commitlint/config-conventional": "^16.0.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -32,8 +33,6 @@
     "crypto-browserify": "^3.12.0",
     "dotenv": "^14.2.0",
     "dotenv-webpack": "^7.0.3",
-    "gh-pages": "^3.2.3",
-    "path-browserify": "^1.0.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
@@ -41,15 +40,17 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "gh-pages": "^3.2.3",
+    "husky": "^5.2.0",
+    "path-browserify": "^1.0.1",
+    "process": "0.11.10",
     "stream": "^0.0.2",
     "stream-browserify": "^3.0.0",
-    "husky": "^5.2.0",
     "util": "^0.12.4",
     "webpack": "^5.58.2",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.3.1",
     "webpack-merge": "^5.8.0",
-    "process": "0.11.10",
     "webpack-node-externals": "^3.0.0"
   },
   "eslintConfig": {
