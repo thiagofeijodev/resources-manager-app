@@ -1,7 +1,17 @@
 {
   "compilerOptions": {
-    "baseUrl": "src"
+    "target": "es2017",
+    "baseUrl": "./",
+    "module": "commonjs",
+    "paths": {
+      "components/*": [ "src/components/*"],
+      "data/*": [ "src/data/*"],
+      "functions/*": [ "src/functions/*"],
+      "scenes/*": [ "src/scenes/*"],
+    }
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
 }
