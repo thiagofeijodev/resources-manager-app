@@ -45,8 +45,7 @@ module.exports = {
       template: path.join(__dirname, '..', 'public/index.html'),
       filename: path.join(__dirname, '..', 'build/index.html'),
     }),
-    new webpack.EnvironmentPlugin([
-    ]),
+    new webpack.EnvironmentPlugin([]),
     new webpack.DefinePlugin({
       MODE: `'${process.env.MODE}'`,
     }),

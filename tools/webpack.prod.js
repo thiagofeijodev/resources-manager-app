@@ -2,7 +2,6 @@
 require('dotenv').config()
 const { merge } = require('webpack-merge')
 const path = require('path')
-const CopyPlugin = require('copy-webpack-plugin')
 const WebpackAssetsManifest = require('webpack-assets-manifest')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const WorkboxPlugin = require('workbox-webpack-plugin')
@@ -27,19 +26,8 @@ module.exports = merge(common, {
       mode: 'webapp',
       manifest: './public/manifest.json',
     }),
-    new WebpackAssetsManifest({
-    }),
-    new WorkboxPlugin.GenerateSW(),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: "public",
-          globOptions: {
-            ignore: ["**/index.*","**/manifest.*"],
-          },
-        },
-      ],
-    }),
+    new WebpackAssetsManifest({}),
+    new WorkboxPlugin.GenerateSW()
   ],
 })
 

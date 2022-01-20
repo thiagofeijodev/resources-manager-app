@@ -3,7 +3,6 @@
         "browser": true,
         "es2021": true,
         "jest": true,
-        "amd": true,
         "node": true
     },
     "extends": [
@@ -22,9 +21,16 @@
     },
     "plugins": [
         "prettier",
+        "import",
         "react"
     ],
     "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["src"]
+            },
+            "babel-module": {}
+        }
     },
     "rules": {
         "no-console": "off",
@@ -34,6 +40,7 @@
         "react/jsx-props-no-spreading": 0,
         "react-hooks/exhaustive-deps": 0,
         "react/prop-types": 0,
+        "react/display-name": 0,
         "react/no-unknown-property": [
             0,
             {
@@ -48,9 +55,13 @@
             }
         ],
         "react/react-in-jsx-scope": "off",
+        "import/prefer-default-export": 0,
         "import/no-extraneous-dependencies": [
             "warn", {
-                "devDependencies": false, 
+                "devDependencies": [
+                    "**/*test.js",
+                    "src/setupTests.js"
+                ], 
                 "optionalDependencies": false, 
                 "peerDependencies": false, 
                 "packageDir": "./"

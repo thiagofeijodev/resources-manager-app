@@ -9,7 +9,7 @@ import { ChevronRight } from 'baseui/icon'
 
 const ItemHistory = ({ ref, ...props }) => {
   const resources = useSelector(selectResource)
-  const id = (props.item.resource || []).map(({ id }) => id).join()
+  const id = (props.item.resource || []).map(({ id: _id }) => _id).join()
 
   return (
     <MenuAdapter
