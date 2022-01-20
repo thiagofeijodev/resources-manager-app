@@ -1,7 +1,7 @@
 import { createReducer } from '@reduxjs/toolkit'
 import { sign } from 'jsonwebtoken'
-import { login, logout, BASE_PATH } from './actions'
 import { loadStorage } from 'functions'
+import { login, logout, BASE_PATH } from './actions'
 
 const initialState = () => {
   const storage = loadStorage(BASE_PATH)
@@ -25,24 +25,31 @@ const authReducer = createReducer(initialState(), (builder) => {
       }
 
       if (users[username] && users[username] === hash) {
-        user['username'] = username
-        user['hash'] = hash
+        user.username = username
+        user.hash = hash
 
-        const _state = { users, user: user }
+        const _state = { users, user }
         localStorage.setItem(BASE_PATH, JSON.stringify(_state))
-        state.user = user
       }
       
-      state.errors = { isInvalid: true }
+      return {
+        ...state,
+        user,
+        errors: { isInvalid: true }
+      }
     })
-    .addCase(logout, (state, _) => {
+    .addCase(logout, (state) => {
       const auth = {
         ...loadStorage(BASE_PATH),
         user: null
       }
       localStorage.setItem(BASE_PATH, JSON.stringify(auth))
-      state.user = null
-      state.errors = null
+
+      return {
+        ...state,
+        user: null,
+        errors: null,
+      }
     })
 })
 

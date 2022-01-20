@@ -6,7 +6,6 @@ import { Provider as StyletronProvider } from 'styletron-react'
 import { LightTheme, BaseProvider } from 'baseui'
 
 import { store } from './data'
-import * as serviceWorker from './serviceWorker'
 import Root from './scenes'
 import './index.css'
 
@@ -25,4 +24,3 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-serviceWorker.unregister()

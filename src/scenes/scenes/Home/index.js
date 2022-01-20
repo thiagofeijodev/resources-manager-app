@@ -21,8 +21,8 @@ export default function Home() {
   const dispatch = useDispatch()
 
   function download(content, fileName, contentType) {
-    var a = document.createElement("a");
-    var file = new Blob([content], {type: contentType});
+    const a = document.createElement("a");
+    const file = new Blob([content], {type: contentType});
     a.href = URL.createObjectURL(file);
     a.download = fileName;
     a.click();
@@ -30,10 +30,10 @@ export default function Home() {
 
   const downloadBackup = () => {
     const allData = Object.keys(localStorage)
-      .reduce(function(obj, str) { 
-        obj[str] = localStorage.getItem(str); 
-        return obj
-      }, {})
+      .reduce((obj, str) => ({
+        ...obj,
+        [str]: localStorage.getItem(str)
+      }), {})
 
     download(JSON.stringify(allData), 'database.json', 'text/plain')
   }
@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <Tabs
       activeKey={activeKey}
-      onChange={({ activeKey }) => setActiveKey(activeKey)}
+      onChange={({ _activeKey }) => setActiveKey(_activeKey)}
     >
       <Tab title="Resources">
         <List

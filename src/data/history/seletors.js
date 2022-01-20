@@ -1,1 +1,3 @@
-export const selectHistory = (state) => state.history?.list || []
+const selectHistory = (state) => state.history?.list || []
+
+export default selectHistory

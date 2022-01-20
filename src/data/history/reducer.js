@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { include, BASE_PATH } from './actions'
 import { loadStorage } from 'functions'
+import { include, BASE_PATH } from './actions'
 
 const initialState = () => {
   const storage = loadStorage(BASE_PATH)
@@ -20,7 +20,10 @@ const historyReducer = createReducer(initialState(), (builder) => {
       ]
 
       localStorage.setItem(BASE_PATH, JSON.stringify(storage))
-      state.list = storage.list
+      return {
+        ...state,
+        list: storage.list
+      }
     })
 })
 
