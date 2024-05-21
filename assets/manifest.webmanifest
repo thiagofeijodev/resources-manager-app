@@ -70,7 +70,7 @@
     }
   ],
   "description": "Manage your company resources",
-  "scope": ".",
+  "scope": "https://resources-manager-app.feijo.dev/",
   "display_override": [
     "window-control-overlay",
     "minimal-ui"
