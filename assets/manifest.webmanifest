@@ -1,6 +1,6 @@
 {
-  "name": "Resources manager",
-  "short_name": "Resources manager",
+  "name": "SaaS",
+  "short_name": "SaaS",
   "dir": "ltr",
   "lang": "en-US",
   "display": "standalone",
@@ -70,7 +70,7 @@
     }
   ],
   "description": "Manage your company resources",
-  "scope": "https://resources-manager-app.feijo.dev/",
+  "scope": "https://saas.feijo.dev/",
   "display_override": [
     "window-control-overlay",
     "minimal-ui"
@@ -83,13 +83,14 @@
   ],
   "shortcuts": [
     {
-      "name": "Login",
-      "url": "/login"
+      "name": "Resources",
+      "url": "/",
+      "description": "SaaS: Resources"
     },
     {
-      "name": "Resources",
-      "url": "/home",
-      "description": "Resources management"
+      "name": "Historic",
+      "url": "/?p=historic",
+      "description": "SaaS: Historic"
     }
   ]
 }
