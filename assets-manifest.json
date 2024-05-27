@@ -69,9 +69,9 @@
   "assets/yandex-browser-50x50.png": "assets/yandex-browser-50x50.png",
   "assets/yandex-browser-manifest.json": "assets/yandex-browser-manifest.json",
   "index.html": "index.html",
-  "main.js": "static/main.113b532b67520779e49b.js",
+  "main.js": "static/main.d6084d0ac723b904ef29.js",
   "service-worker.js": "service-worker.js",
-  "static/197.8a31a6259236d631d052.js": "static/197.8a31a6259236d631d052.js",
-  "static/197.8a31a6259236d631d052.js.LICENSE.txt": "static/197.8a31a6259236d631d052.js.LICENSE.txt",
+  "static/752.ffa954d5fa8bdc8c0013.js": "static/752.ffa954d5fa8bdc8c0013.js",
+  "static/752.ffa954d5fa8bdc8c0013.js.LICENSE.txt": "static/752.ffa954d5fa8bdc8c0013.js.LICENSE.txt",
   "workbox-b41f8fb8.js": "workbox-b41f8fb8.js"
 }
