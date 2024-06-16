@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <Tabs
       activeKey={activeKey}
-      onChange={({ _activeKey }) => setActiveKey(_activeKey)}
+      onChange={({ activeKey: _activeKey }) => setActiveKey(_activeKey)}
     >
       <Tab title="Resources">
         <List
