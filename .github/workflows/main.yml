@@ -31,10 +31,15 @@ jobs:
           node-version: 20
           cache: 'npm'
 
+      - name: Dependencies 🔧
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
+
       - name: Build 🔧
-        run: |
-          npm ci
-          npm run build
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build
 
       - id: deployment
         name: Deploy to GitHub Pages 🚀
