@@ -11,7 +11,7 @@ module.exports = merge(common, {
   mode: 'production',
   output: {
     filename: 'static/[name].[contenthash].js',
-    path: path.resolve(__dirname, '..', 'build'),
+    path: path.resolve(__dirname, '..', 'docs'),
   },
   optimization: {
     splitChunks: {
