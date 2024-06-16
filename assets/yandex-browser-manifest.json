@@ -5,5 +5,42 @@
     "logo": "yandex-browser-50x50.png",
     "color": "#fff",
     "show_title": true
-  }
+  },
+  "short_name": "Resources manager",
+  "name": "Resources manager",
+  "description": "Manage your company resources",
+  "start_url": "/",
+  "scope": ".",
+  "dir": "ltr",
+  "display_override": [
+    "window-control-overlay",
+    "minimal-ui"
+  ],
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "categories": [
+    "business",
+    "government",
+    "productivity",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Login",
+      "url": "/login"
+    },
+    {
+      "name": "Resources",
+      "url": "/home",
+      "description": "Resources management"
+    }
+  ]
 }
