@@ -6,37 +6,29 @@ const initialState = () => {
   const storage = loadStorage(BASE_PATH)
   if (storage) return storage
 
-  return { resources: {} }
+  return {}
 }
 
 const resourceReducer = createReducer(initialState(), (builder) => {
   builder
     .addCase(include, (state, action) => {
       const { payload } = action
-      const { resources } = initialState()
+      const resources = initialState()
       resources[payload.id] = payload
 
-      localStorage.setItem(BASE_PATH, JSON.stringify({ resources }))
-      return {
-        ...state,
-        resources
-      }
+      localStorage.setItem(BASE_PATH, JSON.stringify(resources))
+      return resources
     })
     .addCase(change, (state, action) => {
       const { payload } = action
-      const { resources } = initialState()
-      const resource = resources[payload.resourceId]
-
-      const _resource = {
-        ...resource,
-        amount: resource.amount + payload.amount
+      const resources = initialState()
+      
+      if (resources[payload.resourceId]) {
+        resources[payload.resourceId].amount = resources[payload.resourceId].amount + payload.amount
       }
 
-      localStorage.setItem(BASE_PATH, JSON.stringify({ _resource }))
-      return {
-        ...state,
-        resource: _resource
-      }
+      localStorage.setItem(BASE_PATH, JSON.stringify(resources))
+      return resources
     })
 })
 

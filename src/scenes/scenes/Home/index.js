@@ -54,7 +54,7 @@ export default function Home() {
       <Tab title="Historic">
         <List
           title="Historic"
-          items={[...history].reverse()}
+          items={history || []}
           Viewer={ViewerHistory}
           Item={ItemHistory}
         />

@@ -6,24 +6,22 @@ const initialState = () => {
   const storage = loadStorage(BASE_PATH)
   if (storage) return storage
 
-  return { list: [] }
+  return []
 }
 
 const historyReducer = createReducer(initialState(), (builder) => {
   builder
     .addCase(include, (state, action) => {
       const { payload } = action
-      const storage = initialState()
-      storage.list = [
-        ...storage.list,
-        payload,
+      const historic = initialState()
+
+      const storage = [
+        ...historic,
+        payload
       ]
 
       localStorage.setItem(BASE_PATH, JSON.stringify(storage))
-      return {
-        ...state,
-        list: storage.list
-      }
+      return storage
     })
 })
 
