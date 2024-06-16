@@ -24,7 +24,7 @@ const resourceReducer = createReducer(initialState(), (builder) => {
       const resources = initialState()
       
       if (resources[payload.resourceId]) {
-        resources[payload.resourceId].amount = resources[payload.resourceId].amount + payload.amount
+        resources[payload.resourceId].amount += payload.amount
       }
 
       localStorage.setItem(BASE_PATH, JSON.stringify(resources))
