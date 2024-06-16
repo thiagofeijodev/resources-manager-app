@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path')
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: path.resolve(__dirname, '..', 'src/index.js'),
@@ -40,10 +39,6 @@ module.exports = {
       dependencies: true,
       dependenciesCount: 10000,
       percentBy: null,
-    }),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, '..', 'public/index.html'),
-      filename: path.join(__dirname, '..', 'build/index.html'),
     }),
     new webpack.EnvironmentPlugin([]),
     new webpack.DefinePlugin({
