@@ -9,16 +9,13 @@
 
 <hr />
 
-## Project Scripts
+# Project Scripts
 
-### `yarn`
+## Install dependencies.
+`yarn`
 
-Install dependencies.
+## Start a dev server to preview your app.
+`yarn start`
 
-### `yarn start`
-
-Start a dev server to preview your app.
-
-### `yarn build`
-
-Build app for production to `./build` folder.
+## Build app for production to `./build` folder.
+`yarn build`
