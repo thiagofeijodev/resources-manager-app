@@ -1,7 +1,6 @@
 import React from 'react'
 import { Formik } from 'formik'
-import { useSelector, useDispatch } from 'react-redux'
-import { selectUsername } from 'data/auth'
+import { useDispatch } from 'react-redux'
 import { include } from 'data/resource'
 import {
   ModalHeader,
@@ -13,7 +12,6 @@ import { FormControl } from 'baseui/form-control'
 import { KIND as ButtonKind, Button } from 'baseui/button'
 
 export default function ViewerResource({ item, onClose }) {
-  const username = useSelector(selectUsername)
   const dispatch = useDispatch()
 
   const isEdit = Object.keys(item || {}).length > 0
@@ -24,7 +22,6 @@ export default function ViewerResource({ item, onClose }) {
   const onSubmit = (values, { setSubmitting }) => {
     const submitData = {
       id: (new Date()).toISOString(),
-      username,
       ...values,
     }
 
@@ -80,25 +77,14 @@ export default function ViewerResource({ item, onClose }) {
             </FormControl>
 
             {isEdit && (
-              <>
-                <FormControl label="Created by">
-                  <Input
-                    type="text"
-                    name="username"
-                    value={values.username}
-                    disabled={isEdit}
-                  />
-                </FormControl>
-
-                <FormControl label="Created at">
-                  <Input
-                    type="text"
-                    name="id"
-                    value={(new Date(values.id)).toLocaleString()}
-                    disabled={isEdit}
-                  />
-                </FormControl>
-              </>
+              <FormControl label="Created at">
+                <Input
+                  type="text"
+                  name="id"
+                  value={(new Date(values.id)).toLocaleString()}
+                  disabled={isEdit}
+                />
+              </FormControl>
             )}
           </ModalBody>
           <ModalFooter>

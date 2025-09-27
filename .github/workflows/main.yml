@@ -26,20 +26,15 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install 🔧
-        uses: actions/setup-node@v4
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: 20
-          cache: 'npm'
+          bun-version: 'latest'
 
-      - name: Dependencies 🔧
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install
+      - name: Install dependencies 🔧
+        run: bun install
 
       - name: Build 🔧
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: build
+        run: bun run build
 
       - id: deployment
         name: Deploy to GitHub Pages 🚀

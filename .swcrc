@@ -1,0 +1,30 @@
+{
+  "jsc": {
+    "parser": {
+      "syntax": "ecmascript",
+      "jsx": true
+    },
+    "transform": {
+      "react": {
+        "runtime": "automatic",
+        "development": false
+      }
+    },
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": [ "src/components/*"],
+      "data/*": [ "src/data/*"],
+      "functions/*": [ "src/functions/*"],
+      "scenes/*": [ "src/scenes/*"]
+    }
+  },
+  "module": {
+    "type": "es6"
+  },
+  "env": {
+    "targets": "> 0.25%, not dead",
+    "mode": "entry",
+    "coreJs": "3.38"
+  },
+  "sourceMaps": false
+}

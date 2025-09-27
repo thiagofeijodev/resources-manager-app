@@ -10,12 +10,10 @@ import { Input } from 'baseui/input'
 import { Select } from 'baseui/select'
 import { FormControl } from 'baseui/form-control'
 import { KIND as ButtonKind, Button } from 'baseui/button'
-import { selectUsername } from 'data/auth'
 import { selectResource, change } from 'data/resource'
 import { include } from 'data/history'
 
 export default function ViewerHistory({ item, onClose }) {
-  const username = useSelector(selectUsername)
   const resources = useSelector(selectResource)
   const dispatch = useDispatch()
 
@@ -28,7 +26,6 @@ export default function ViewerHistory({ item, onClose }) {
     const resourceId = values.resource.map(({ id }) => id).join()
     const submitData = {
       id: (new Date()).toISOString(),
-      username,
       resourceId,
       ...values,
     }
@@ -92,25 +89,14 @@ export default function ViewerHistory({ item, onClose }) {
             </FormControl>
 
             {isEdit && (
-              <>
-                <FormControl label="Created by">
-                  <Input
-                    type="text"
-                    name="username"
-                    value={values.username}
-                    disabled={isEdit}
-                  />
-                </FormControl>
-
-                <FormControl label="Created at">
-                  <Input
-                    type="text"
-                    name="id"
-                    value={(new Date(values.id)).toLocaleString()}
-                    disabled={isEdit}
-                  />
-                </FormControl>
-              </>
+              <FormControl label="Created at">
+                <Input
+                  type="text"
+                  name="id"
+                  value={(new Date(values.id)).toLocaleString()}
+                  disabled={isEdit}
+                />
+              </FormControl>
             )}
           </ModalBody>
 

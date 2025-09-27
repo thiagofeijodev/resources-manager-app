@@ -1,27 +1,38 @@
 import React from 'react'
 import { FileUploader } from 'baseui/file-uploader'
-import { BASE_PATH as auth } from 'data/auth'
 import { BASE_PATH as history } from 'data/history'
 import { BASE_PATH as resource } from 'data/resource'
 
 export default function RestoreBackup() {
+  const [fileRows, setFileRows] = React.useState([]);
 
   function onReaderLoad(event) {
-    const storage = JSON.parse(event.target.result)
+    const storage = JSON.parse(event);
 
-    storage.forEach(item => {
-      if ([ auth, history, resource ].includes(item)) {
+    for (const item in storage) {
+      if ([ history, resource ].includes(item)) {
         localStorage.setItem(item, storage[item])
       }
-    })
-
-    window.location.reload()
+    }
   }
 
-  function onChange(files) {
-    const reader = new FileReader()
-    reader.onload = onReaderLoad
-    reader.readAsText(files[0])
+  const processFileOnDrop = (file) => {
+    // Read each file
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+
+      reader.onload = async () => {
+        console.log(reader.result);
+        onReaderLoad(reader.result);
+        resolve({ name: file.name, data: reader.result });
+        return Promise.resolve();
+      };
+      reader.onerror = (err) => {
+        console.log('Error reading file:', err)
+        reject(err);
+      };
+      reader.readAsText(file);
+    });
   }
 
   return (
@@ -30,11 +41,12 @@ export default function RestoreBackup() {
         ContentMessage: () => "Load database..."
       }}
       accept={['.json']}
-      multiple={false}
-      onDrop={(acceptedFiles) => {
-        console.log(acceptedFiles);
-        onChange(acceptedFiles)
-      }}
+      maxSize={1000000}
+      fileRows={fileRows}
+      setFileRows={newFileRows =>
+        setFileRows(newFileRows)
+      }
+      processFileOnDrop={processFileOnDrop}
     />
   )
 }

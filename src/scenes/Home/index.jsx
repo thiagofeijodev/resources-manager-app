@@ -1,8 +1,7 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Button } from 'baseui/button'
 import { Tabs, Tab } from 'baseui/tabs-motion'
-import { logout } from 'data/auth'
 import { selectResource } from 'data/resource'
 import { selectHistory } from 'data/history'
 import { List, RestoreBackup } from 'components'
@@ -17,8 +16,6 @@ export default function Home() {
   const [activeKey, setActiveKey] = React.useState('0')
   const resources = useSelector(selectResource)
   const history = useSelector(selectHistory)
-
-  const dispatch = useDispatch()
 
   function download(content, fileName, contentType) {
     const a = document.createElement("a");
@@ -64,11 +61,6 @@ export default function Home() {
         <br/>
         <Button onClick={() => downloadBackup()}>
           Backup
-        </Button>
-        <br/>
-        <br/>
-        <Button onClick={() => dispatch(logout())}>
-          Logoff
         </Button>
       </Tab>
     </Tabs>
