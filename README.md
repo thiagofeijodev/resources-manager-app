@@ -4,7 +4,7 @@
   <p>Inventory management client application — final college project. Built as a client-side single-page app with a decentralized data store and no central backend.</p>
 
   <p>
-    <a href="https://resources-manager.feijo.dev/" target="_blank">Live demo</a>
+    <a href="https://saas.feijo.dev/" target="_blank">Live demo</a>
   </p>
 </div>
 
