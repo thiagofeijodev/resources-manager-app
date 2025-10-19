@@ -35,9 +35,13 @@ jobs:
 
       - name: Build 🔧
         run: bun run build
+        env:
+          NODE_ENV: production
 
-      - id: deployment
-        name: Deploy to GitHub Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          folder: docs
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          publish_branch: gh-pages
+          commit_message: "chore: deploy to gh-pages 🚀"

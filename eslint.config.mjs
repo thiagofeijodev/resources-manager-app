@@ -1,113 +1,96 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { defineConfig } from "eslint/config";
-import prettier from "eslint-plugin-prettier";
-import _import from "eslint-plugin-import";
-import react from "eslint-plugin-react";
-import { fixupPluginRules } from "@eslint/compat";
 import globals from "globals";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import js from "@eslint/js";
-import { FlatCompat } from "@eslint/eslintrc";
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
+import prettier from "eslint-config-prettier";
+import eslint from "@eslint/js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
+const config = [
+  // Base configuration for all files
+  eslint.configs.recommended,
+  react.configs.flat.recommended,
+  prettier,
 
-export default defineConfig([
+  // Configuration files (including this one)
   {
-    extends: compat.extends(
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "prettier",
-    ),
-
-    plugins: {
-      prettier,
-      import: fixupPluginRules(_import),
-      react,
-    },
-
+    files: [
+      "eslint.config.js",
+      ".config/**/*.{js,ts,mjs}",
+      "commitlint.config.js",
+      "jest.config.mjs",
+    ],
     languageOptions: {
+      globals: {
+        require: "readonly",
+        module: "readonly",
+        exports: "readonly",
+        __dirname: "readonly",
+        __filename: "readonly",
+        process: "readonly",
+        console: "readonly",
+        setTimeout: "readonly",
+        clearTimeout: "readonly",
+        setInterval: "readonly",
+        clearInterval: "readonly",
+      },
+    },
+    rules: {
+      "@typescript-eslint/no-var-requires": "off",
+      "no-console": "off",
+    },
+  },
+
+  // React files configuration
+  {
+    files: ["src/**/*.{js,jsx}"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
       globals: {
         ...globals.browser,
         ...globals.jest,
-        ...globals.node,
+        process: "readonly",
       },
-
-      ecmaVersion: 12,
-      sourceType: "module",
-
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
         },
       },
     },
-
+    plugins: {
+      react,
+      "react-hooks": reactHooks,
+      "react-refresh": reactRefresh,
+    },
     settings: {
-      react: {
-        version: "detect",
-      },
-
-      "import/resolver": {
-        node: {
-          paths: ["src"],
-        },
-
-        "babel-module": {},
-      },
+      react: { version: "detect" },
     },
-
     rules: {
-      "no-console": "off",
-      eqeqeq: 0,
-      "no-plusplus": 0,
-      "no-underscore-dangle": 0,
-      "react/jsx-props-no-spreading": 0,
-      "react-hooks/exhaustive-deps": 0,
-      "react/prop-types": 0,
-      "react/display-name": 0,
-
-      "react/no-unknown-property": [
-        0,
-        {
-          ignore: [
-            "clip-rule",
-            "fill-rule",
-            "stop-opacity",
-            "stroke-width",
-            "stroke-linejoin",
-            "stroke-miterlimit",
-          ],
-        },
-      ],
-
-      "react/react-in-jsx-scope": "off",
-      "import/prefer-default-export": 0,
-
-      "import/no-extraneous-dependencies": [
+      "react/react-in-jsx-scope": "off", // Not needed with React 17+
+      "react/prop-types": "off", // not using prop-types
+      "react-refresh/only-export-components": [
         "warn",
-        {
-          devDependencies: ["**/*test.js", "src/setupTests.js"],
-          optionalDependencies: false,
-          peerDependencies: false,
-          packageDir: "./",
-        },
+        { allowConstantExport: true },
       ],
-
-      "react/jsx-filename-extension": [
-        1,
-        {
-          extensions: [".js", ".jsx", ".svg"],
-        },
-      ],
+      "react/jsx-uses-react": "off",
+      "react/jsx-uses-vars": "error",
     },
-
-    ignores: ["node_modules", "docs", ".config", "public", "coverage"],
   },
-]);
+
+  // Ignore patterns
+  {
+    ignores: [
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/build/**",
+      "**/release/**",
+      "**/*.d.ts",
+      "**/coverage/**",
+      "**/.cache/**",
+      "**/bun.lock",
+      "**/package-lock.json",
+    ],
+  },
+];
+
+export default config;
