@@ -1,6 +1,6 @@
-import { createReducer } from "@reduxjs/toolkit";
-import { loadStorage } from "functions";
-import { include, BASE_PATH } from "./actions";
+import { createReducer } from '@reduxjs/toolkit';
+import { loadStorage } from 'functions';
+import { include, BASE_PATH } from './actions';
 
 const initialState = () => {
   const storage = loadStorage(BASE_PATH);

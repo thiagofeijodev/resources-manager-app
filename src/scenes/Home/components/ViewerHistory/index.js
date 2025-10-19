@@ -1,12 +1,12 @@
-import { Formik } from "formik";
-import { useSelector, useDispatch } from "react-redux";
-import { ModalHeader, ModalBody, ModalFooter } from "baseui/modal";
-import { Input } from "baseui/input";
-import { Select } from "baseui/select";
-import { FormControl } from "baseui/form-control";
-import { KIND as ButtonKind, Button } from "baseui/button";
-import { selectResource, change } from "data/resource";
-import { include } from "data/history";
+import { Formik } from 'formik';
+import { useSelector, useDispatch } from 'react-redux';
+import { ModalHeader, ModalBody, ModalFooter } from 'baseui/modal';
+import { Input } from 'baseui/input';
+import { Select } from 'baseui/select';
+import { FormControl } from 'baseui/form-control';
+import { KIND as ButtonKind, Button } from 'baseui/button';
+import { selectResource, change } from 'data/resource';
+import { include } from 'data/history';
 
 export default function ViewerHistory({ item, onClose }) {
   const resources = useSelector(selectResource);
@@ -34,8 +34,8 @@ export default function ViewerHistory({ item, onClose }) {
       initialValues={initialValues}
       validate={(values) => {
         const errors = {};
-        if (!values.resource) errors.resource = "Required";
-        if (!values.amount) errors.amount = "Required";
+        if (!values.resource) errors.resource = 'Required';
+        if (!values.amount) errors.amount = 'Required';
 
         return errors;
       }}
@@ -52,7 +52,7 @@ export default function ViewerHistory({ item, onClose }) {
         isSubmitting,
       }) => (
         <form onSubmit={handleSubmit}>
-          <ModalHeader>{isEdit ? "View" : "New"}</ModalHeader>
+          <ModalHeader>{isEdit ? 'View' : 'New'}</ModalHeader>
           <ModalBody>
             <FormControl label="Resouce">
               <Select
@@ -61,7 +61,7 @@ export default function ViewerHistory({ item, onClose }) {
                 name="resource"
                 labelKey="name"
                 valueKey="id"
-                onChange={({ value }) => setFieldValue("resource", value)}
+                onChange={({ value }) => setFieldValue('resource', value)}
                 error={errors.resource && touched.resource && errors.resource}
                 onBlur={handleBlur}
                 value={values.resource}

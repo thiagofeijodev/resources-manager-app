@@ -1,5 +1,5 @@
-import { ListItemLabel, MenuAdapter } from "baseui/list";
-import { ChevronRight } from "baseui/icon";
+import { ListItemLabel, MenuAdapter } from 'baseui/list';
+import { ChevronRight } from 'baseui/icon';
 
 const ItemResouce = ({ ref, ...props }) => (
   <MenuAdapter

@@ -1,6 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { resourceReducer } from "./resource";
-import { historyReducer } from "./history";
+import { configureStore } from '@reduxjs/toolkit';
+import { resourceReducer } from './resource';
+import { historyReducer } from './history';
 
 export const store = configureStore({
   reducer: {

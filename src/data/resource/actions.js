@@ -1,6 +1,6 @@
-import { createAction } from "@reduxjs/toolkit";
+import { createAction } from '@reduxjs/toolkit';
 
-const BASE_PATH = "/resources";
+const BASE_PATH = '/resources';
 const INCLUDE = `${BASE_PATH}/INCLUDE`;
 const CHANGE = `${BASE_PATH}/CHANGE`;
 

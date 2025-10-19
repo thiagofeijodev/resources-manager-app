@@ -1,16 +1,16 @@
-import { Formik } from "formik";
-import { useDispatch } from "react-redux";
-import { include } from "data/resource";
-import { ModalHeader, ModalBody, ModalFooter } from "baseui/modal";
-import { Input } from "baseui/input";
-import { FormControl } from "baseui/form-control";
-import { KIND as ButtonKind, Button } from "baseui/button";
+import { Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { include } from 'data/resource';
+import { ModalHeader, ModalBody, ModalFooter } from 'baseui/modal';
+import { Input } from 'baseui/input';
+import { FormControl } from 'baseui/form-control';
+import { KIND as ButtonKind, Button } from 'baseui/button';
 
 export default function ViewerResource({ item, onClose }) {
   const dispatch = useDispatch();
 
   const isEdit = Object.keys(item || {}).length > 0;
-  const initialValues = isEdit ? item : { name: "", amount: "" };
+  const initialValues = isEdit ? item : { name: '', amount: '' };
 
   const onSubmit = (values, { setSubmitting }) => {
     const submitData = {
@@ -28,24 +28,16 @@ export default function ViewerResource({ item, onClose }) {
       initialValues={initialValues}
       validate={(values) => {
         const errors = {};
-        if (!values.name) errors.name = "Required";
-        if (!values.amount) errors.amount = "Required";
+        if (!values.name) errors.name = 'Required';
+        if (!values.amount) errors.amount = 'Required';
 
         return errors;
       }}
       onSubmit={onSubmit}
     >
-      {({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-      }) => (
+      {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
         <form onSubmit={handleSubmit}>
-          <ModalHeader>{isEdit ? "View" : "New"}</ModalHeader>
+          <ModalHeader>{isEdit ? 'View' : 'New'}</ModalHeader>
           <ModalBody>
             <FormControl label="Name">
               <Input

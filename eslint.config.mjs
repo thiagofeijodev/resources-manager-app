@@ -1,9 +1,9 @@
-import globals from "globals";
-import react from "eslint-plugin-react";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
-import prettier from "eslint-config-prettier";
-import eslint from "@eslint/js";
+import globals from 'globals';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import prettier from 'eslint-config-prettier';
+import eslint from '@eslint/js';
 
 const config = [
   // Base configuration for all files
@@ -14,42 +14,42 @@ const config = [
   // Configuration files (including this one)
   {
     files: [
-      "eslint.config.js",
-      ".config/rspack/*.{js,ts,mjs}",
-      "commitlint.config.js",
-      "jest.config.mjs",
+      'eslint.config.js',
+      '.config/rspack/*.{js,ts,mjs}',
+      'commitlint.config.js',
+      'jest.config.mjs',
     ],
     languageOptions: {
       globals: {
-        require: "readonly",
-        module: "readonly",
-        exports: "readonly",
-        __dirname: "readonly",
-        __filename: "readonly",
-        process: "readonly",
-        console: "readonly",
-        setTimeout: "readonly",
-        clearTimeout: "readonly",
-        setInterval: "readonly",
-        clearInterval: "readonly",
+        require: 'readonly',
+        module: 'readonly',
+        exports: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
+        process: 'readonly',
+        console: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
       },
     },
     rules: {
-      "@typescript-eslint/no-var-requires": "off",
-      "no-console": "off",
+      '@typescript-eslint/no-var-requires': 'off',
+      'no-console': 'off',
     },
   },
 
   // React files configuration
   {
-    files: ["src/**/*.{js,jsx}"],
-    ignores: ["src/**/*.{test,spec}.{js,jsx}", "src/**/__tests__/**"],
+    files: ['src/**/*.{js,jsx}'],
+    ignores: ['src/**/*.{test,spec}.{js,jsx}', 'src/**/__tests__/**'],
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       globals: {
         ...globals.browser,
-        process: "readonly",
+        process: 'readonly',
       },
       parserOptions: {
         ecmaFeatures: {
@@ -59,38 +59,35 @@ const config = [
     },
     plugins: {
       react,
-      "react-hooks": reactHooks,
-      "react-refresh": reactRefresh,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
     },
     settings: {
-      react: { version: "detect" },
+      react: { version: 'detect' },
     },
     rules: {
-      "react/react-in-jsx-scope": "off", // Not needed with React 17+
-      "react/prop-types": "off", // not using prop-types
-      "react-refresh/only-export-components": [
-        "warn",
-        { allowConstantExport: true },
-      ],
-      "react/jsx-uses-react": "off",
-      "react/jsx-uses-vars": "error",
+      'react/react-in-jsx-scope': 'off', // Not needed with React 17+
+      'react/prop-types': 'off', // not using prop-types
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'react/jsx-uses-react': 'off',
+      'react/jsx-uses-vars': 'error',
     },
   },
 
   // Test files configuration
   {
     files: [
-      "src/**/*.{test,spec}.{js,jsx}",
-      "src/**/__tests__/**/*.{js,jsx}",
-      ".config/tests/*.{js,ts,mjs}",
+      'src/**/*.{test,spec}.{js,jsx}',
+      'src/**/__tests__/**/*.{js,jsx}',
+      '.config/tests/*.{js,ts,mjs}',
     ],
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       globals: {
         ...globals.browser,
         ...globals.jest,
-        process: "readonly",
+        process: 'readonly',
       },
       parserOptions: {
         ecmaFeatures: {
@@ -100,32 +97,32 @@ const config = [
     },
     plugins: {
       react,
-      "react-hooks": reactHooks,
+      'react-hooks': reactHooks,
     },
     settings: {
-      react: { version: "detect" },
+      react: { version: 'detect' },
     },
     rules: {
-      "react/react-in-jsx-scope": "off",
-      "react/prop-types": "off",
-      "react/jsx-uses-react": "off",
-      "react/jsx-uses-vars": "error",
-      "no-undef": "off", // Jest globals are handled by globals.jest
+      'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off',
+      'react/jsx-uses-react': 'off',
+      'react/jsx-uses-vars': 'error',
+      'no-undef': 'off', // Jest globals are handled by globals.jest
     },
   },
 
   // Ignore patterns
   {
     ignores: [
-      "**/node_modules/**",
-      "**/dist/**",
-      "**/build/**",
-      "**/release/**",
-      "**/*.d.ts",
-      "**/coverage/**",
-      "**/.cache/**",
-      "**/bun.lock",
-      "**/package-lock.json",
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/build/**',
+      '**/release/**',
+      '**/*.d.ts',
+      '**/coverage/**',
+      '**/.cache/**',
+      '**/bun.lock',
+      '**/package-lock.json',
     ],
   },
 ];
