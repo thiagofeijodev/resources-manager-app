@@ -1,7 +1,7 @@
-import React from 'react'
-import { FileUploader } from 'baseui/file-uploader'
-import { BASE_PATH as history } from 'data/history'
-import { BASE_PATH as resource } from 'data/resource'
+import React from "react";
+import { FileUploader } from "baseui/file-uploader";
+import { BASE_PATH as history } from "data/history";
+import { BASE_PATH as resource } from "data/resource";
 
 export default function RestoreBackup() {
   const [fileRows, setFileRows] = React.useState([]);
@@ -10,8 +10,8 @@ export default function RestoreBackup() {
     const storage = JSON.parse(event);
 
     for (const item in storage) {
-      if ([ history, resource ].includes(item)) {
-        localStorage.setItem(item, storage[item])
+      if ([history, resource].includes(item)) {
+        localStorage.setItem(item, storage[item]);
       }
     }
   }
@@ -28,25 +28,23 @@ export default function RestoreBackup() {
         return Promise.resolve();
       };
       reader.onerror = (err) => {
-        console.log('Error reading file:', err)
+        console.log("Error reading file:", err);
         reject(err);
       };
       reader.readAsText(file);
     });
-  }
+  };
 
   return (
     <FileUploader
       overrides={{
-        ContentMessage: () => "Load database..."
+        ContentMessage: () => "Load database...",
       }}
-      accept={['.json']}
+      accept={[".json"]}
       maxSize={1000000}
       fileRows={fileRows}
-      setFileRows={newFileRows =>
-        setFileRows(newFileRows)
-      }
+      setFileRows={(newFileRows) => setFileRows(newFileRows)}
       processFileOnDrop={processFileOnDrop}
     />
-  )
+  );
 }

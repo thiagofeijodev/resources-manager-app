@@ -1,3 +1,3 @@
-const selectHistory = (state) => state.history || []
+const selectHistory = (state) => state.history || [];
 
-export default selectHistory
+export default selectHistory;

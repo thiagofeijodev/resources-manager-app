@@ -1,10 +1,10 @@
 export const loadStorage = (key) => {
-  const user = localStorage.getItem(key)
+  const user = localStorage.getItem(key);
 
   if (user) {
-    return JSON.parse(user) || {}
+    return JSON.parse(user) || {};
   }
-  return null
-}
+  return null;
+};
 
-export default loadStorage
+export default loadStorage;

@@ -1,25 +1,20 @@
-import React from 'react'
-import { Button, SHAPE } from 'baseui/button'
-import { Modal, SIZE, ROLE } from 'baseui/modal'
-import { Heading, HeadingLevel } from 'baseui/heading'
-import { Plus } from 'baseui/icon'
-import { List as BaseUIList, Align } from './components'
+import React from "react";
+import { Button, SHAPE } from "baseui/button";
+import { Modal, SIZE, ROLE } from "baseui/modal";
+import { Heading, HeadingLevel } from "baseui/heading";
+import { Plus } from "baseui/icon";
+import { List as BaseUIList, Align } from "./components";
 
 export default function List({ title, items, Viewer, Item }) {
-  const [selected, setSelected] = React.useState(null)
-  const isOpen = !!selected
+  const [selected, setSelected] = React.useState(null);
+  const isOpen = !!selected;
 
   return (
     <>
       <HeadingLevel>
         <Align>
-          <Heading>
-            {title} 
-          </Heading>
-          <Button
-            shape={SHAPE.circle}
-            onClick={() => setSelected({})}
-          >
+          <Heading>{title}</Heading>
+          <Button shape={SHAPE.circle} onClick={() => setSelected({})}>
             <Plus />
           </Button>
         </Align>
@@ -40,11 +35,8 @@ export default function List({ title, items, Viewer, Item }) {
         size={SIZE.full}
         role={ROLE.dialog}
       >
-        <Viewer
-          item={selected}
-          onClose={() => setSelected(null)}
-        />
+        <Viewer item={selected} onClose={() => setSelected(null)} />
       </Modal>
     </>
-  )
+  );
 }

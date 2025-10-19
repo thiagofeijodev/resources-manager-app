@@ -26,11 +26,9 @@
 - [License](#license)
 - [Contact](#contact)
 
-
 ## About
 
 This project is an inventory/resources manager implemented as a client-side React application. It demonstrates a decentralised approach to data storage and a responsive UI for managing items, categories and users (no central backend required).
-
 
 ## Features
 
@@ -39,7 +37,6 @@ This project is an inventory/resources manager implemented as a client-side Reac
 - Decentralized/local-first data storage
 - Production build and static deployment-ready (served from `docs/`)
 
-
 ## Tech stack
 
 - React 19
@@ -47,14 +44,12 @@ This project is an inventory/resources manager implemented as a client-side Reac
 - BaseUI + Styletron for styling
 - Redux Toolkit for state management
 
-
 ## Getting started
 
 ### Prerequisites
 
 - Node.js (for compatibility with some tools) — the project specifies `node: 24.9.0` in `package.json` engines but Bun is supported for install/build steps in CI.
 - Yarn or Bun (both supported). Use whichever you prefer locally.
-
 
 ### Install
 
@@ -69,7 +64,6 @@ Using Bun:
 ```bash
 bun install
 ```
-
 
 ### Run (development)
 
@@ -87,7 +81,6 @@ Using Bun (if your environment maps scripts correctly):
 bun run start
 ```
 
-
 ### Build (production)
 
 Produce an optimized production build (outputs to `build` or `docs` depending on configuration):
@@ -103,7 +96,6 @@ Using Bun:
 ```bash
 bun run build
 ```
-
 
 ### Lint & Test
 
@@ -123,7 +115,6 @@ yarn test
 bun run test
 ```
 
-
 ## Project structure
 
 Top-level folders you'll commonly work with:
@@ -131,7 +122,6 @@ Top-level folders you'll commonly work with:
 - `src/` — application source (components, scenes, functions, data)
 - `.config/` — build/tooling configuration (Rspack)
 - `docs/` — static site output (used for GitHub Pages deployment)
-
 
 ## Contributing
 
@@ -141,15 +131,12 @@ Contributions are welcome. A few guidelines:
 - Run the linter and tests before opening a PR.
 - Update the README or docs for any public-facing changes.
 
-
 ## License
 
 This project is open source and licensed under the terms in the `LICENSE` file.
-
 
 ## Contact
 
 Site / demo: https://resources-manager.feijo.dev/
 
 If you want help updating CI, switching package manager scripts, or adding tests, tell me what you'd like and I can make the changes.
-

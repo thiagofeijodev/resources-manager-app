@@ -1,44 +1,37 @@
-import React from 'react'
-import { Formik } from 'formik'
-import { useDispatch } from 'react-redux'
-import { include } from 'data/resource'
-import {
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-} from 'baseui/modal'
-import { Input } from 'baseui/input'
-import { FormControl } from 'baseui/form-control'
-import { KIND as ButtonKind, Button } from 'baseui/button'
+import { Formik } from "formik";
+import { useDispatch } from "react-redux";
+import { include } from "data/resource";
+import { ModalHeader, ModalBody, ModalFooter } from "baseui/modal";
+import { Input } from "baseui/input";
+import { FormControl } from "baseui/form-control";
+import { KIND as ButtonKind, Button } from "baseui/button";
 
 export default function ViewerResource({ item, onClose }) {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const isEdit = Object.keys(item || {}).length > 0
-  const initialValues = isEdit
-    ? item
-    : { name: '', amount: '' }
+  const isEdit = Object.keys(item || {}).length > 0;
+  const initialValues = isEdit ? item : { name: "", amount: "" };
 
   const onSubmit = (values, { setSubmitting }) => {
     const submitData = {
-      id: (new Date()).toISOString(),
+      id: new Date().toISOString(),
       ...values,
-    }
+    };
 
-    dispatch(include(submitData))
-    setSubmitting(false)
-    onClose()
-  }
+    dispatch(include(submitData));
+    setSubmitting(false);
+    onClose();
+  };
 
   return (
     <Formik
       initialValues={initialValues}
-      validate={values => {
-        const errors = {}
-        if (!values.name) errors.name = 'Required'
-        if (!values.amount) errors.amount = 'Required'
+      validate={(values) => {
+        const errors = {};
+        if (!values.name) errors.name = "Required";
+        if (!values.amount) errors.amount = "Required";
 
-        return errors
+        return errors;
       }}
       onSubmit={onSubmit}
     >
@@ -81,7 +74,7 @@ export default function ViewerResource({ item, onClose }) {
                 <Input
                   type="text"
                   name="id"
-                  value={(new Date(values.id)).toLocaleString()}
+                  value={new Date(values.id).toLocaleString()}
                   disabled={isEdit}
                 />
               </FormControl>
@@ -108,5 +101,5 @@ export default function ViewerResource({ item, onClose }) {
         </form>
       )}
     </Formik>
-  )
+  );
 }

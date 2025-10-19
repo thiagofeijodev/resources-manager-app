@@ -1,9 +1,5 @@
-import React from 'react'
-import {
-  ListItemLabel,
-  MenuAdapter,
-} from 'baseui/list'
-import { ChevronRight } from 'baseui/icon'
+import { ListItemLabel, MenuAdapter } from "baseui/list";
+import { ChevronRight } from "baseui/icon";
 
 const ItemResouce = ({ ref, ...props }) => (
   <MenuAdapter
@@ -12,12 +8,10 @@ const ItemResouce = ({ ref, ...props }) => (
     ref={ref}
     endEnhancer={() => <ChevronRight />}
   >
-    <ListItemLabel
-      description={`Total amount: ${props.item.amount}`}
-    >
+    <ListItemLabel description={`Total amount: ${props.item.amount}`}>
       {props.item.name}
     </ListItemLabel>
   </MenuAdapter>
-)
+);
 
-export default ItemResouce
+export default ItemResouce;

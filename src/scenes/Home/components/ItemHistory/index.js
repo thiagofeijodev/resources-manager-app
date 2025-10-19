@@ -1,15 +1,11 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { selectResource } from 'data/resource'
-import {
-  ListItemLabel,
-  MenuAdapter,
-} from 'baseui/list'
-import { ChevronRight } from 'baseui/icon'
+import { useSelector } from "react-redux";
+import { selectResource } from "data/resource";
+import { ListItemLabel, MenuAdapter } from "baseui/list";
+import { ChevronRight } from "baseui/icon";
 
 const ItemHistory = ({ ref, ...props }) => {
-  const resources = useSelector(selectResource)
-  const id = (props.item.resource || []).map(({ id: _id }) => _id).join()
+  const resources = useSelector(selectResource);
+  const id = (props.item.resource || []).map(({ id: _id }) => _id).join();
 
   return (
     <MenuAdapter
@@ -18,13 +14,11 @@ const ItemHistory = ({ ref, ...props }) => {
       ref={ref}
       endEnhancer={() => <ChevronRight />}
     >
-      <ListItemLabel
-        description={`Total amount: ${props.item.amount}`}
-      >
-        {resources[id]?.name || 'Not fount'}
+      <ListItemLabel description={`Total amount: ${props.item.amount}`}>
+        {resources[id]?.name || "Not fount"}
       </ListItemLabel>
     </MenuAdapter>
-  )
-}
+  );
+};
 
-export default ItemHistory
+export default ItemHistory;

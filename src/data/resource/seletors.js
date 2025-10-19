@@ -1,3 +1,3 @@
 export const selectResource = (state) => {
-  return state.resource || {}
-}
+  return state.resource || {};
+};

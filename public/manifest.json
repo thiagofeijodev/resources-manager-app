@@ -17,7 +17,7 @@
       "type": "image/x-icon"
     }
   ],
-  "shortcuts" : [
+  "shortcuts": [
     {
       "name": "Login",
       "url": "/login"

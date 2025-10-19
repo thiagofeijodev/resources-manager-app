@@ -1,50 +1,43 @@
-import React from 'react'
-import { Formik } from 'formik'
-import { useSelector, useDispatch } from 'react-redux'
-import {
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-} from 'baseui/modal'
-import { Input } from 'baseui/input'
-import { Select } from 'baseui/select'
-import { FormControl } from 'baseui/form-control'
-import { KIND as ButtonKind, Button } from 'baseui/button'
-import { selectResource, change } from 'data/resource'
-import { include } from 'data/history'
+import { Formik } from "formik";
+import { useSelector, useDispatch } from "react-redux";
+import { ModalHeader, ModalBody, ModalFooter } from "baseui/modal";
+import { Input } from "baseui/input";
+import { Select } from "baseui/select";
+import { FormControl } from "baseui/form-control";
+import { KIND as ButtonKind, Button } from "baseui/button";
+import { selectResource, change } from "data/resource";
+import { include } from "data/history";
 
 export default function ViewerHistory({ item, onClose }) {
-  const resources = useSelector(selectResource)
-  const dispatch = useDispatch()
+  const resources = useSelector(selectResource);
+  const dispatch = useDispatch();
 
-  const isEdit = Object.keys(item || {}).length > 0
-  const initialValues = isEdit
-    ? item
-    : { resource: [], amount: 0 }
+  const isEdit = Object.keys(item || {}).length > 0;
+  const initialValues = isEdit ? item : { resource: [], amount: 0 };
 
   const onSubmit = (values, { setSubmitting }) => {
-    const resourceId = values.resource.map(({ id }) => id).join()
+    const resourceId = values.resource.map(({ id }) => id).join();
     const submitData = {
-      id: (new Date()).toISOString(),
+      id: new Date().toISOString(),
       resourceId,
       ...values,
-    }
+    };
 
-    dispatch(include(submitData))
-    dispatch(change(submitData))
-    setSubmitting(false)
-    onClose()
-  }
+    dispatch(include(submitData));
+    dispatch(change(submitData));
+    setSubmitting(false);
+    onClose();
+  };
 
   return (
     <Formik
       initialValues={initialValues}
-      validate={values => {
-        const errors = {}
-        if (!values.resource) errors.resource = 'Required'
-        if (!values.amount) errors.amount = 'Required'
+      validate={(values) => {
+        const errors = {};
+        if (!values.resource) errors.resource = "Required";
+        if (!values.amount) errors.amount = "Required";
 
-        return errors
+        return errors;
       }}
       onSubmit={onSubmit}
     >
@@ -68,8 +61,7 @@ export default function ViewerHistory({ item, onClose }) {
                 name="resource"
                 labelKey="name"
                 valueKey="id"
-                onChange={({ value }) => setFieldValue('resource', value)
-                }
+                onChange={({ value }) => setFieldValue("resource", value)}
                 error={errors.resource && touched.resource && errors.resource}
                 onBlur={handleBlur}
                 value={values.resource}
@@ -93,7 +85,7 @@ export default function ViewerHistory({ item, onClose }) {
                 <Input
                   type="text"
                   name="id"
-                  value={(new Date(values.id)).toLocaleString()}
+                  value={new Date(values.id).toLocaleString()}
                   disabled={isEdit}
                 />
               </FormControl>
@@ -124,5 +116,5 @@ export default function ViewerHistory({ item, onClose }) {
         </form>
       )}
     </Formik>
-  )
+  );
 }

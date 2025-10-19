@@ -1,7 +1,13 @@
-import React from 'react'
-import { Menu } from 'baseui/menu'
+import React from "react";
+import { Menu } from "baseui/menu";
 
 export default function List({ items, onSelect, Component }) {
+  const Item = React.forwardRef((props, ref) => (
+    <Component {...props} ref={ref} onSelect={onSelect} />
+  ));
+
+  Item.displayName = "ListItemOverride";
+
   return (
     <Menu
       items={items}
@@ -10,18 +16,12 @@ export default function List({ items, onSelect, Component }) {
           props: {
             overrides: {
               ListItem: {
-                component: React.forwardRef((props, ref) => (
-                  <Component
-                    {...props}
-                    ref={ref}
-                    onSelect={onSelect}
-                  />
-                )),
+                component: Item,
               },
             },
           },
         },
       }}
     />
-  )
+  );
 }
