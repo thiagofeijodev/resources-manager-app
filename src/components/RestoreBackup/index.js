@@ -22,7 +22,6 @@ export default function RestoreBackup() {
       const reader = new FileReader();
 
       reader.onload = async () => {
-        console.log(reader.result);
         onReaderLoad(reader.result);
         resolve({ name: file.name, data: reader.result });
         return Promise.resolve();
