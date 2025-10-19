@@ -1,34 +1,27 @@
-name: Deploy
+name: Production Deploy
 
 on:
   push:
     branches: ['main']
 
-  workflow_dispatch:
-
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: 'pages'
-  cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Install 🔧
-        uses: oven-sh/setup-bun@v2
+        uses: actions/setup-node@v4
         with:
-          bun-version: 'latest'
+          node-version: 24
+          cache: 'npm'
+
+      - name: Install dependencies (including optional)
+        run: npm ci --include=optional
 
       - name: Install dependencies 🔧
         run: bun install
