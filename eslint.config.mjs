@@ -14,7 +14,7 @@ const config = [
   // Configuration files (including this one)
   {
     files: [
-      'eslint.config.js',
+      'eslint.config.mjs',
       '.config/rspack/*.{js,ts,mjs}',
       'commitlint.config.js',
       'jest.config.mjs',

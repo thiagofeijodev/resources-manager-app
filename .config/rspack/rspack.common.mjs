@@ -9,6 +9,12 @@ export default {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
+    alias: {
+      components: path.resolve(process.cwd(), 'src/components'),
+      data: path.resolve(process.cwd(), 'src/data'),
+      functions: path.resolve(process.cwd(), 'src/functions'),
+      scenes: path.resolve(process.cwd(), 'src/scenes'),
+    },
   },
   module: {
     rules: [

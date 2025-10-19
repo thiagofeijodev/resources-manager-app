@@ -4,9 +4,13 @@
     "target": "es2016",
     "baseUrl": "src",
     "paths": {
+      "components": ["src/components"],
       "components/*": ["src/components/*"],
+      "data": ["src/data"],
       "data/*": ["src/data/*"],
+      "functions": ["src/functions"],
       "functions/*": ["src/functions/*"],
+      "scenes": ["src/scenes"],
       "scenes/*": ["src/scenes/*"]
     }
   },

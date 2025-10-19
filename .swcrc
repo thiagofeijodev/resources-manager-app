@@ -12,10 +12,10 @@
     },
     "baseUrl": "./src",
     "paths": {
-      "components/*": ["src/components/*"],
-      "data/*": ["src/data/*"],
-      "functions/*": ["src/functions/*"],
-      "scenes/*": ["src/scenes/*"]
+      "components": ["src/components"],
+      "data": ["src/data"],
+      "functions": ["src/functions"],
+      "scenes": ["src/scenes"]
     }
   },
   "module": {
